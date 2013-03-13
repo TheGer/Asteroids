@@ -3,46 +3,24 @@
 var normalSpeed:int;
 var turboSpeed:int;
 
+//slot for the laser
+var laserprefab:Rigidbody;
+
 
 function Start () {
 
 }
 
 function Update () {
-	var xpositionofspaceship:float;
-	var ypositionofspaceship:float;
+	
+	//to enable borders
+	BordersCalculator.EnableBorders(this.transform);
 	
 	
-	xpositionofspaceship = transform.position.x;
-	ypositionofspaceship = transform.position.y;
-	
-	
-	//space ship enable borders
-	//if the spaceship exited the scene to the left
-	if (xpositionofspaceship < BordersCalculator.leftmost)
+	if (Input.GetKeyDown(KeyCode.LeftControl))
 	{
-		transform.position.x = BordersCalculator.rightmost;
+		Instantiate(laserprefab,transform.position,transform.rotation);
 	}
-	
-	//if the spaceship exited the scene to the right
-	if(xpositionofspaceship > BordersCalculator.rightmost)
-	{
-		transform.position.x = BordersCalculator.leftmost;
-	}
-	
-	//if the spaceship exited the scene from the top
-	if (ypositionofspaceship > BordersCalculator.topmost)
-	{
-		transform.position.y = BordersCalculator.bottommost;
-	}
-	
-	//if the spaceship exited the scene from the bottom
-	if (ypositionofspaceship < BordersCalculator.bottommost)
-	{
-		transform.position.y = BordersCalculator.topmost;
-	}
-	
-	
 	
 	//rotate left and right
 	transform.Rotate(Vector3.forward * -40 * Time.deltaTime * Input.GetAxis("Horizontal"));
