@@ -15,3 +15,15 @@ function OnBecameInvisible()
 {
 	Destroy(this.gameObject);
 }
+
+function OnTriggerEnter(otherObject:Collider)
+{
+	if (otherObject.gameObject.tag == "asteroid")
+	{
+		//increment score, destroy laser, destroy asteroid
+		PlayerController.score++;
+		Destroy(this.gameObject);
+		Destroy(otherObject.gameObject);
+	}
+
+}

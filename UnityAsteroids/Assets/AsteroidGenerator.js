@@ -7,7 +7,7 @@ var starttime:float;
 //the game at the moment
 var currenttime:float;
 //the game has been played for - KEMM ILI NILGHAB
-var elapsedtime:float;
+static var elapsedtime:float;
 
 
 
@@ -27,10 +27,7 @@ function Start () {
 
 function Update () {
 	currenttime = Time.time;
-	elapsedtime = currenttime - starttime;
-	
-	
-	
+	elapsedtime = currenttime - starttime;	
 }
 
 function OnGUI()
