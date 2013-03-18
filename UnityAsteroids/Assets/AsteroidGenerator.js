@@ -30,10 +30,6 @@ function Update () {
 	elapsedtime = currenttime - starttime;	
 }
 
-function OnGUI()
-{
-	GUI.Label(Rect(1,1,200,50),"Time Elapsed: "+elapsedtime);
-}
 
 
 function createAsteroids(numberOfAsteroids:int)
